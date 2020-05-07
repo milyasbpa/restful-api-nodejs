@@ -10,7 +10,18 @@ exports.tampilsemuamahasiswa = (req,res) => {
         if (error) {
             connection.log(error)
         } else {
-            response.ok(rows,results)
+            response.ok(results,res)
+        }
+    })
+}
+
+exports.tampilberdasarkanid = (req,res) => {
+    let id = req.params.id;
+    connection.query('SELECT * FROM mahasiswa WHERE id_mahasiswa = ?', [id], (error,results,fields) => {
+        if (error) {
+            connection.log(error)
+        } else {
+            response.ok(results,res)
         }
     })
 }
