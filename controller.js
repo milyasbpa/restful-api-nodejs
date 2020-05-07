@@ -39,3 +39,16 @@ exports.tambahmahasiswa = (req,res) => {
     })
 }
 
+exports.updatemahasiswa = (req,res) => {
+    let id = req.body.id_mahasiswa;
+    let nim = req.body.nim;
+    let nama = req.body.nama;
+    let jurusan = req.body.jurusan;
+    connection.query('UPDATE mahasiswa nim=?, nama=? ,jurusan=? WHERE id_mahasiswa = ?', [nim,nama,jurusan,id], (error,results,fields) => {
+        if (error) {
+            connection.log(error)
+        } else {
+            response.ok("Sukses Ubah Data",res)
+        }
+    })
+}

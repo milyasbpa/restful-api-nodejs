@@ -9,6 +9,9 @@ module.exports = (app) => {
     app.route('/tampil/:id')
     .get(jsonku.tampilberdasarkanid);
     
-    app.route('tambah')
+    app.route('/tambah')
     .post(jsonku.tambahmahasiswa);
+
+    app.route('/update')
+    .put(jsonku.updatemahasiswa);
 }
